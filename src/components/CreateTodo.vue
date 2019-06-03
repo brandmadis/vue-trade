@@ -52,6 +52,7 @@ export default {
   data() {
     return {
       showError: false,
+      showSuccess: "",
       todo: {}
     };
   },
@@ -60,12 +61,12 @@ export default {
     createTodo() {
       apiService.createTodo(this.todo).then(
         result => {
-          console.log(result);
           if (result.status === 201) {
             this.todo = result.data;
           }
         },
         error => {
+          this.$log.debug("createTodo ", error);
           this.showError = true;
         }
       );
@@ -73,9 +74,10 @@ export default {
     updateTodo() {
       apiService.updateTodo(this.todo).then(
         result => {
-          console.log(result);
+          this.showSuccess = result;
         },
         error => {
+          this.$log.debug("createTodo ", error);
           this.showError = true;
         }
       );
@@ -86,7 +88,6 @@ export default {
   },
 
   mounted() {
-    console.log("CreateTodo -- mounted call here");
     if (this.$route.params.pk) {
       apiService.getTodo(this.$route.params.pk).then(todo => {
         this.todo = todo;
