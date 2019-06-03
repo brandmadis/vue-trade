@@ -5,12 +5,20 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "api": "cd api && node server.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.19.0",
     "core-js": "^2.6.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "moment": "^2.24.0",
+    "mongoose": "^5.5.11",
     "vue": "^2.6.10",
     "vue-router": "^3.0.6",
+    "vuejs-logger": "1.5.3",
     "vuetify": "^1.5.5"
   },
   "devDependencies": {
@@ -35,7 +43,9 @@
       "plugin:vue/essential",
       "eslint:recommended"
     ],
-    "rules": {},
+    "rules": {
+
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }

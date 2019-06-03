@@ -32,6 +32,16 @@ export default new Router({
             path: '/projects',
             name: 'projects',
             component: () => import('./views/Projects.vue')
+        },
+        {
+            path: '/todo',
+            name: 'todo',
+            component: () => import('./views/Todo.vue')
+        },
+        {
+            path: '/listtodo',
+            name: 'listtodo',
+            component: () => import('./views/ListTodo.vue')
         }
     ]
 })

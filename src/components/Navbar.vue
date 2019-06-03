@@ -36,7 +36,9 @@ export default {
         { icon: "dashboard", text: "Dashboard", route: "/" },
         { icon: "folder", text: "MyStrategies", route: "/projects" },
         { icon: "people", text: "Team", route: "/team" },
-        { icon: "person", text: "Profile", route: "/profile" }
+        { icon: "person", text: "Profile", route: "/profile" },
+        { icon: "today", text: "Todo", route: "/todo" },
+        { icon: "today", text: "ListTodo", route: "/listtodo" }
       ]
     };
   }
