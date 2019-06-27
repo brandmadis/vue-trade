@@ -8,7 +8,7 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn flat color="grey">
-        <span>Sign Out</span>
+        <span @click="logOut()">Sign Out</span>
         <v-icon right>exit_to_app</v-icon>
       </v-btn>
     </v-toolbar>
@@ -41,6 +41,11 @@ export default {
         { icon: "today", text: "ListTodo", route: "/listtodo" }
       ]
     };
+  },
+  methods: {
+    logOut() {
+      this.$router.push("/login");
+    }
   }
 };
 </script>

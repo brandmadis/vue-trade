@@ -1,25 +1,30 @@
+require("dotenv").config();
 var express = require('express'),
     path = require('path'),
     bodyParser = require('body-parser'),
     cors = require('cors'),
-    mongoose = require('mongoose');
+    mongoose = require('mongoose'),
+    config = require('./config'),
+    bcrypt = require('bcrypt'),
+    jwt = require('jsonwebtoken');
 
-mongoose.connect("mongodb://localhost:27017/vuetradedb", {
-    useNewUrlParser: true
-}).then(
-    () => {
-        console.log('Database connection is successful')
-    },
-    err => {
-        console.log('Error when connecting to the database' + err)
-    }
-);
+require('./db/mongoose');
+
+
+
 const app = express();
 app.use(express.static('public'));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 app.use(cors());
 
 console.log('processing request ');
+
+//auth route
+var authrt = require('./routes/authroute.js');
+app.use('/api/security', authrt);
 
 var todo = require('./routes/routes.js');
 app.use('/api/todo', todo);
