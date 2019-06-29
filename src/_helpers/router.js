@@ -22,6 +22,35 @@ export const router = new Router({
             path: '/register',
             component: RegisterPage
         },
+        {
+            path: '/homepage',
+            component: HomePage
+        },
+        {
+            path: '/about',
+            name: 'about',
+            component: () => import('../views/About.vue')
+        }, {
+            path: '/profile',
+            name: 'profile',
+            component: () => import('../views/Profile.vue')
+        }, {
+            path: '/team',
+            name: 'team',
+            component: () => import('../views/Team.vue')
+        }, {
+            path: '/projects',
+            name: 'projects',
+            component: () => import('../views/Projects.vue')
+        }, {
+            path: '/todo',
+            name: 'todo',
+            component: () => import('../views/Todo.vue')
+        }, {
+            path: '/listtodo',
+            name: 'listtodo',
+            component: () => import('../views/ListTodo.vue')
+        },
 
         // otherwise redirect to home
         {

@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1>Hi {{account.user.firstName}}!</h1>
+    <h1>Hi-- {{account.user.user.name}} -- !</h1>
+    <h2>-- LoggedIn? {{account.status.loggedIn}} -- !</h2>
+
     <p>You're logged in with Vue + Vuex & JWT!!</p>
     <h3>Users from secure api end point:</h3>
     <em v-if="users.loading">Loading users...</em>

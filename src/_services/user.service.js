@@ -20,7 +20,7 @@ export const userService = {
 function login(username, password) {
 
     console.log('user.service login ', process.env.VUE_APP_API_URL)
-    this.$log.debug('vuejs-logger ', process.env.VUE_APP_API_URL)
+    //this.$log.debug('vuejs-logger ', process.env.VUE_APP_API_URL)
 
     const requestOptions = {
         method: 'POST',
