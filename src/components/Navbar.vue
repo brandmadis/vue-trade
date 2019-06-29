@@ -45,7 +45,9 @@ export default {
         { icon: "people", text: "Team", route: "/team" },
         { icon: "person", text: "Profile", route: "/profile" },
         { icon: "today", text: "Todo", route: "/todo" },
-        { icon: "today", text: "ListTodo", route: "/listtodo" }
+        { icon: "toc", text: "Todo List", route: "/listtodo" },
+        { icon: "face", text: "About Us", route: "/about" },
+        { icon: "bug_report", text: "Contact Us", route: "/about" }
       ]
     };
   },
