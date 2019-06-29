@@ -1,5 +1,12 @@
 <template>
-  <trading-vue :data="this.$data"></trading-vue>
+  <trading-vue
+    :width="this.width"
+    :height="this.height"
+    :data="this.$data"
+    :color-back="colors.colorBack"
+    :color-grid="colors.colorGrid"
+    :color-text="colors.colorText"
+  ></trading-vue>
 </template>
 <script>
 import TradingVue from "trading-vue-js";
@@ -7,8 +14,27 @@ import TradingVue from "trading-vue-js";
 export default {
   name: "app",
   components: { TradingVue },
+  methods: {
+    onResize() {
+      this.width = window.innerWidth / 1.2;
+      this.height = window.innerHeight / 1.2;
+    }
+  },
+  mounted() {
+    window.addEventListener("resize", this.onResize);
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.onResize);
+  },
   data() {
     return {
+      width: window.innerWidth / 1.2,
+      height: window.innerHeight / 1.2,
+      colors: {
+        colorBack: "#fff",
+        colorGrid: "#eee",
+        colorText: "#333"
+      },
       ohlcv: [
         [1551128400000, 33, 37.1, 14, 14, 196],
         [1551132000000, 13.7, 30, 6.6, 30, 206],
