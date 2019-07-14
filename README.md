@@ -1,5 +1,8 @@
 # vue-trade
 
+![VueTradeREADMEPic](https://user-images.githubusercontent.com/212162/61190027-ab1b6200-a64a-11e9-84eb-7ac1d435a840.png)
+
+
 ## Project setup
 ```
 npm install
