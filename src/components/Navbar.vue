@@ -7,8 +7,8 @@
         <span>Trader</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn flat color="grey">
-        <span>Sign Out</span>
+      <v-btn flat color="grey" v-if="account.status.loggedIn">
+        <span @click="logOut()">Sign Out</span>
         <v-icon right>exit_to_app</v-icon>
       </v-btn>
     </v-toolbar>
@@ -28,7 +28,14 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
+  computed: {
+    ...mapState({
+      account: state => state.account,
+      users: state => state.users.all
+    })
+  },
   data() {
     return {
       drawer: false,
@@ -38,9 +45,16 @@ export default {
         { icon: "people", text: "Team", route: "/team" },
         { icon: "person", text: "Profile", route: "/profile" },
         { icon: "today", text: "Todo", route: "/todo" },
-        { icon: "today", text: "ListTodo", route: "/listtodo" }
+        { icon: "toc", text: "Todo List", route: "/listtodo" },
+        { icon: "face", text: "About Us", route: "/about" },
+        { icon: "bug_report", text: "Contact Us", route: "/about" }
       ]
     };
+  },
+  methods: {
+    logOut() {
+      this.$router.push("/login");
+    }
   }
 };
 </script>
